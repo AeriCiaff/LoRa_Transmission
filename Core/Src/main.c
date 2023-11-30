@@ -55,16 +55,16 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void LORA_SendData(uint8_t* data, uint16_t size)
+void LoRa_SendData(uint8_t* data, uint16_t size)
 {
-HAL_UART_Transmit(&huart1, data, size, 1000);
+		HAL_UART_Transmit(&huart1, data, size, 1000);
 }// 发送数据到LORA模块
 
 //void LORA_ReceiveData(uint8_t* buffer, uint16_t size)
 //{
-//// 从LORA模块接收数据
-//HAL_UART_Receive(&huart1, buffer, size, 1000);
-//}
+//	HAL_UART_Receive(&huart1, buffer, size, 1000);
+//}// 从LORA模块接收数据
+
 /* USER CODE END 0 */
 
 /**
@@ -105,7 +105,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-		LORA_SendData(sendData, sizeof(sendData));
+		LoRa_SendData(sendData, sizeof(sendData));
+		//LORA_ReceiveData(receiveData, sizeof(receiveData));
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
